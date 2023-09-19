@@ -1,0 +1,16 @@
+Algoritmo "repetições"
+
+Var
+   numero, somatorio:inteiro
+
+
+Inicio
+      somatorio <-0
+    repita
+      escreval("digite um numero (0 para sair)")
+      leia (numero)
+      somatorio<- somatorio + numero
+      até(numero=0)
+    escreva("o somatório foi", somatorio)
+
+Fimalgoritmo
