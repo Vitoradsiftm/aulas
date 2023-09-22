@@ -1,0 +1,31 @@
+Algoritmo "Questão 2"
+var
+   nome: caractere
+   idade: inteiro
+   tiposanguineo: caractere
+   identidade: caractere
+
+inicio
+
+   escreva("Informe o nome do funcionário: ")
+   leia(nome)
+
+   escreva("Informe a idade do funcionário: ")
+   leia(idade)
+
+   escreva("Informe o tipo sanguíneo do funcionário: ")
+   leia(tipoSanguineo)
+
+   escreva("Informe a identidade do funcionário: ")
+   leia(identidade)
+
+   limpatela
+
+
+   escreval("CARTEIRA DE IDENTIFICAÇÃO DE FUNCIONÁRIO")
+   escreval("NOME: ", nome)
+   escreval("IDADE: ", idade)
+   escreval("TIPO S: ", tiposanguineo)
+   escreval("IDENTIDADE: ", identidade)
+
+fimalgoritmo
