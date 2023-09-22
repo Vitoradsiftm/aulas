@@ -1,0 +1,14 @@
+Algoritmo "ContagemNumerosResto5"
+Var
+   contador, numero: inteiro
+ inicio
+contador <- 0
+
+Para numero <- 1000 ate 2000 faca com passo 1
+   Se numero  %11 = 5 entao
+      contador <- contador + 1
+   FimSe
+FimPara
+
+Escreva("A quantidade de números entre 1000 e 2000 com resto 5 ao dividir por 11 é: ", contador)
+FimAlgoritmo
