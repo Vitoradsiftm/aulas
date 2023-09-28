@@ -1,0 +1,17 @@
+algoritmo "para ate"
+var
+   n: inteiro
+   res: real
+   i: inteiro
+inicio
+    i<-0
+
+  escreval("digite um número")
+  leia(n)
+  para i de 1 ate 10 faca passo 1
+   res<-i*n
+  escreval (res)
+    fimpara
+    
+    
+fimalgoritmo
