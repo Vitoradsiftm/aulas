@@ -1,0 +1,23 @@
+Algoritmo "ContagemMenoresEmaioresDeIdade"
+Var
+   idade: inteiro
+   contadorMenores, contadorMaiores: inteiro
+   i: inteiro
+Inicio
+   contadorMenores <- 0
+   contadorMaiores <- 0
+
+   Para i de 1 ate 10 faca
+      Escreva ("Digite a idade da pessoa ", i, ": ")
+      Leia (idade)
+
+      Se idade < 18 entao
+         contadorMenores <- contadorMenores + 1
+      Senao
+         contadorMaiores <- contadorMaiores + 1
+      FimSe
+   FimPara
+
+   Escreval ("A quantidade de pessoas com menos de 18 anos é: ", contadorMenores)
+   Escreval ("A quantidade de pessoas com 18 anos ou mais é: ", contadorMaiores)
+FimAlgoritmo
