@@ -1,0 +1,26 @@
+Algoritmo "ATIVIDADE 05"
+// Disciplina   : Algoritmo
+Var
+   n, i : inteiro
+   numero, Maiornumero: real
+
+
+Inicio
+   Maiornumero <- -99999
+   escreval ("Escreva quantos números você vai digitar: ")
+   leia (n)
+   para i de 1 ate n faca
+      escreval ("Digite o número ", i,": ")
+      leia (numero)
+      se (numero > Maiornumero) entao
+         Maiornumero <- numero
+      fimse
+   fimpara
+   escreval ("Esse é o maior número", Maiornumero)
+
+
+
+
+
+
+Fimalgoritmo
