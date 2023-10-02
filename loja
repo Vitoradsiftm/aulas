@@ -1,0 +1,33 @@
+Algoritmo "Loja"
+Var
+   i: Inteiro
+   compra, totalAVista, totalAPrazo, totalCompras, primeiraPrestacao: Real
+   opcao: inteiro
+Inicio
+   totalAVista <- 0
+   totalAPrazo <- 0
+   totalCompras <- 0
+
+   Para i de 1 até 10 faça
+      Escreva("Digite o valor da transação ", i, ": ")
+      Leia(compra)
+
+      totalCompras <- totalCompras + compra
+
+      Escreva("A compra foi à vista (1 - Sim / 2 - Não)? ")
+      Leia(opcao)
+
+      Se opcao = 1 então
+         totalAVista <- totalAVista + compra
+      Senão
+         totalAPrazo <- totalAPrazo + compra
+      FimSe
+   FimPara
+
+   primeiraPrestacao <- totalAPrazo / 4
+
+   Escreval("O valor total de compras à vista é: R$", totalAVista)
+   Escreval("O valor total de compras a prazo é: R$", totalAPrazo)
+   Escreval("O valor total de todas as compras é: R$", totalCompras)
+   Escreval("O valor da primeira prestação das compras a prazo é: R$", primeiraPrestacao)
+FimAlgoritmo
