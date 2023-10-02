@@ -1,0 +1,17 @@
+algoritmo "tabuada 1 a 10"
+var
+   n: inteiro
+   res: real
+   i: inteiro
+inicio
+    i<-0
+    para i de 1 ate 10 faca passo 1
+    escreval("digite um número")
+    leia(n)
+    para i de 1 ate 10 faca passo 1
+    res<-i*n
+    escreval (res)
+    fimpara
+    fimpara
+
+fimalgoritmo
