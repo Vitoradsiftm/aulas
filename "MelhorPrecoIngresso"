@@ -1,0 +1,23 @@
+Algoritmo "MelhorPrecoIngresso"
+Var
+   Preco, Lucro, MelhorPreco: inteiro
+   Audiencia, MelhorAudiencia: Inteiro
+   i: inteiro
+Inicio
+   MelhorPreco <- 0
+   MelhorAudiencia <- 0
+
+   Para Preco de 10 até 1 passo -1 faca
+      Audiencia <- 200 + (10 - Preco) * 52
+      Lucro <- (Preco * Audiencia) - 300
+
+      Se ((Lucro > 0) E (Lucro > MelhorPreco)) então
+         MelhorPreco <- Preco
+         MelhorAudiencia <- Audiencia
+      FimSe
+   FimPara
+
+   Escreval("O melhor preço de venda do ingresso é: R$", MelhorPreco)
+   Escreval("O número de pessoas na audiência é: ", MelhorAudiencia)
+   Escreval("O lucro esperado com a realização do evento é: R$", (MelhorPreco * MelhorAudiencia) - 300.0)
+FimAlgoritmo
