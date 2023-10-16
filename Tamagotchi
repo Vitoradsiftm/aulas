@@ -1,0 +1,319 @@
+algoritmo "Eletronic Friend 2023"
+
+var
+    nomePet,doenca: caractere
+    tempoDeVida, felicidade, limpeza, fome, dias: inteiro
+    opc: inteiro
+    escolhaJogador, escolhaComputador: inteiro
+    sorteio,cont: inteiro
+
+
+inicio
+    cont<-0
+    escreval("Bem-vindo ao Projeto Eletronic Friend 2023!")
+    escreval("      <(^^)>    (••)    (x.x)")
+    escreval("")
+    
+    
+    escreval("         .......;;;;;/mmmmmmmmmmmmmm\/..................      ")
+    escreval("       ........;;;mmmmmmmmmmmmmmmmmmm.....................    ")
+    escreval("     .........;;m/;;;;\mmmmmm/;;;;;\m......................   ")
+    escreval("  ..........;;;m;;mmmm;;mmmm;;mmmmm;;m......................  ")
+    escreval("..........;;;;;mmmnnnmmmmmmmmmmnnnmmmm\....................   ")
+    escreval(".........  ;;;;;n/#####\nmmmmn/#####\nmm\.................    ")
+    escreval(".......     ;;;;n##...##nmmmmn##...##nmmmm\.............      ")
+    escreval("....        ;;;n#.....|nmmmmn#.....#nmmmmm,l.........         ")
+    escreval(" ..          mmmn\.../nmmmmmmn\.../nmmmm,m,lll.....           ")
+    escreval("          /mmmmmmmmmmmmmmmmmmmmmmmmmmm,mmmm,llll..            ")
+    escreval("      /mmmmmmmmmmmmmmmmmmmmmmm\nmmmn/mmmmmmm,lll/             ")
+    escreval("   /mmmmm/..........\mmmmmmmmmmnnmnnmmmmmmmmm,ll              ")
+    escreval("  mmmmmm|...........|mmmmmmmmmmmmmmmmmmmmmmmm,ll              ")
+    escreval("  \mmmmmmm\......./mmmmmmmmmmmmmmmmmmmmmmmmm,llo              ")
+    escreval("    \mmmmmmm\.../mmmmmmmmmmmmmmmmmmmmmmmmmm,lloo              ")
+    escreval("      \mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm,ll/oooo             ")
+    escreval("         \mmmmmmmmmmll..;;;.;;;;;;/mmm,lll/oooooo\            ")
+    escreval("                   ll..;;;.;;;;;;/llllll/ooooooooo            ")
+    escreval("                   ll.;;;.;;;;;/.llll/oooooooooo..o           ")
+    escreval("                   ll;;;.;;;;;;..ll/ooooooooooo...oo          ")
+    escreval("                   \;;;;.;;;;;..ll/ooooo...ooooo..oo\         ")
+    escreval("                 ;;;;;;;;;;;;..ll|oooo.....oooooooooo         ")
+    escreval("                ;;;;;;.;;;;;;.ll/oooo.....ooooooo....\        ")
+    escreval("                ;;;;;.;;;;;;;ll/ooooooooooooo.....oooo        ")
+    escreval("                 \;;;.;;;;;;/oooooooooooo.....oooooooo\       ")
+    escreval("                  \;;;.;;;;/ooooooooo.....ooooooooooooo       ")
+    escreval("                    \;;;;/ooooooo.....ooooooooooo...ooo\      ")
+    escreval("                    |o\;/oooo.....ooooooooooooo......ooo      ")
+    escreval("                    oooooo....ooooooooooooooooooo.....oo\     ")
+    escreval("                   oooo....oooooooooooooooooooooooo..oooo     ")
+    escreval("                     .oooooooooooooo....ooooooooooooooooo\    ")
+    escreval("                 /XXX\oooooooooooo.....ooooooooooooooooooo    ")
+    escreval("                 |XXX|ooooo.oooooo....ooooooooooooooooooooo   ")
+    escreval("               /oo\X/oooo..ooooooooooooooooooo..oooooooooooo  ")
+    escreval("             /ooooooo..ooooo..oooooooooooooo.....ooooooooo... ")
+    escreval("           /ooooo...ooooo.....oooooooooooo.......ooooooo..... ")
+    escreval("")
+    escreval("Digite um nome para o seu pet: ")
+    leia(nomePet)
+
+
+
+    tempoDeVida <- 0
+    dias <- 0
+    felicidade <- 5
+    limpeza <- 10
+    fome <- 0
+
+
+    repita
+        escreval("Projeto Eletronic Friend 2023")
+        escreval("<(^^)>    (••)    (x.x)")
+        escreval("Escolha uma opção a seguir: ")
+        escreval("1. Avançar o tempo")
+        escreval("2. Alimentar")
+        escreval("3. Jogar")
+        escreval("4. Dar banho")
+        escreval("5. Ver status")
+        escreval("6. Desligar")
+
+        leia(opc)
+
+        escolha(opc)
+           caso 1
+                // Avançar o tempo
+                tempoDeVida <- tempoDeVida + 8
+                            se tempoDeVida = 24 entao
+                            dias <- dias + 1
+                            tempoDeVida <- 0
+
+                            fimse
+                fome <- fome + 3
+                felicidade <- felicidade - 2
+                limpeza <- limpeza - 2
+                limpatela
+                escreval("Tempo avançado/status atualizado")
+                escreval("")
+
+                se (dias = 7) entao
+                            limpatela
+                            escreval(nomePet, "morreu por velhice e teve um tempo de vida de ",dias," dias :(")
+                            escreval("")
+                            escreval("Muito obrigado por jogar nosso jogo!!")
+                            escreval("")
+                            escreval("Equipe de produção:Alexssander José")
+                            escreval("                   Alex Nunes")
+                            escreval("                   Ezequias Nery")
+                            escreval("                   Vitor Reis")
+
+                            fimalgoritmo
+                            fimse
+                se (fome >= 10) entao
+                            limpatela
+                            escreval(nomePet, "morreu por fome e teve um tempo de vida de ",dias," dias e ",tempoDeVida," horas :(")
+                            escreval("")
+                            escreval("Muito obrigado por jogar nosso jogo!!")
+                            escreval("")
+                            escreval("Equipe de produção:Alexssander José")
+                            escreval("                   Alex Nunes")
+                            escreval("                   Ezequias Nery")
+                            escreval("                   Vitor Reis")
+                            fimalgoritmo
+                            fimse
+
+
+                se (felicidade <= 0) entao
+                            escreval(nomePet, " morreu de tristeza e teve um tempo de vida de ",dias," dias e ",tempoDeVida," horas :(")
+                            escreval("")
+                            escreval("Muito obrigado por jogar nosso jogo!!")
+                            escreval("")
+                            escreval("Equipe de produção:Alexssander José")
+                            escreval("                   Alex Nunes")
+                            escreval("                   Ezequias Nery")
+                            escreval("                   Vitor Reis")
+                            fimalgoritmo
+                            fimse
+
+
+
+                se (limpeza <= 0) entao
+                            escreval(nomePet, " morreu de sujeira e teve um tempo de vida de ",dias," dias e ",tempoDeVida," horas :(")
+                            fimalgoritmo
+                            fimse
+                 //SORTEIO PARA A DOENÇA
+                sorteio <- randi (9)
+                se sorteio = 0 então
+                      escreval ("Seu pet está doente")
+                      escreval("")
+                      doenca<- ("Seu pet está doente")
+                senao
+                  escreval("Seu pet está saudável")
+                  escreval("")
+                  doenca<- ("Seu pet está saudável")
+                  fimse
+                  //Sorteio para chance de curar
+                  se (cont=1) entao
+                     sorteio <- randi (2)
+                     se sorteio=0 entao
+                       doenca<- ("Seu pet está saudável")
+                       escreval("Seu pet está saudável")
+                       escreval("")
+                       cont<-0
+                     fimse
+                  fimse
+                  se(cont=2) entao
+                     sorteio <- randi (2)
+                     se (sorteio<>2) entao
+                     doenca<- ("Seu pet está saudável")
+                     cont<-0
+                     escreval("Seu pet está saudável")
+                     escreval("")
+                     fimse
+                  fimse
+                  se (cont=3) entao
+                     doenca<- ("Seu pet está saudável")
+                     cont<-0
+                     escreval("Seu pet está saudável")
+                     escreval("")
+                  fimse
+                  se(doenca="Seu pet está doente") entao
+                     cont<-cont+1
+                  fimse
+
+
+
+
+
+            caso 2
+                // Alimentar o pet
+               se fome = 0 entao
+               felicidade<-felicidade-2
+                escreval(nomePet, " não estava com fome! Ficou infeliz pelo lanche desnecesário!")
+
+                  senao
+               se (fome>0) e (fome<4) entao
+                  fome<-0
+                  felicidade<-felicidade + 2
+
+                  escreval(nomePet, "  estava com fome! Ficou feliz pelo lanche!")
+               senao
+                    fome<-fome-4
+                    felicidade<-felicidade+2
+
+                    escreval(nomePet, "  estava com fome! Ficou feliz pelo lanche!")
+
+                 fimse
+               fimse
+
+            se (felicidade <= 0) entao
+                            escreval(nomePet, " morreu de tristeza :(")
+                            fimalgoritmo
+            senao
+                 se (felicidade>10) entao
+                    felicidade<-10
+                 fimse
+            fimse
+
+
+
+            caso 3
+                // Jogar Pedra, Papel ou Tesoura com o pet
+               limpatela
+               escreval("Bem-vindo ao Jogo Pedra, Papel ou Tesoura!")
+               escreval("Escolha sua jogada:")
+               escreval("1 - Pedra")
+               escreval("2 - Papel")
+               escreval("3 - Tesoura")
+
+               leia(escolhaJogador)
+
+               // Verifique se a escolha do jogador é válida
+               se ((escolhaJogador < 1) ou (escolhaJogador > 3)) entao
+                  escreval("Escolha inválida. Por favor, escolha 1, 2 ou 3.")
+               senao
+               // Escolha aleatória do computador
+                  aleatorio 1, 3
+                  leia(escolhaComputador)
+                  aleatorio off
+
+               // Exiba a escolha do computador
+               escreva("O seu pet escolheu:")
+
+               // Converta a escolha do computador para o texto correspondente
+               escolha(escolhaComputador)
+                  caso 1
+                     escreval("Pedra")
+                  caso 2
+                     escreval("Papel")
+                  caso 3
+                     escreval("Tesoura")
+               fimescolha
+               fimse
+                  // Determine o vencedor
+                  se (escolhaJogador = escolhaComputador) entao
+                     escreval("Empate!")
+                  senao
+                       se (escolhaJogador = 1) e (escolhaComputador = 3) entao
+                            escreval("Você ganhou!")
+                            felicidade <- felicidade +3
+                       senao
+                           se  (escolhaJogador = 2) e (escolhaComputador = 1) entao
+                               escreval("Você ganhou!")
+                               felicidade <- felicidade +3
+                           senao
+                             se(escolhaJogador = 3) e (escolhaComputador = 2)entao
+                                  escreval("Você ganhou!")
+                                  felicidade <- felicidade +3
+                             senao
+                                 escreval("O", nomePet ,"ganhou!")
+                                 felicidade <- felicidade +5
+
+                             fimse
+                           fimse
+                       fimse
+                  fimse
+
+                  se (felicidade>10) entao
+                     felicidade<-10
+                  fimse
+            caso 4
+                // Dar banho no pet
+                se limpeza < 10 entao
+                   limpeza <- 10
+                   escreval("Banho concedido com sucesso!")
+                senao
+                     felicidade <- felicidade - 6
+                     escreval(nomePet, " estava limpo! Ficou infeliz pelo banho desnecessário.")
+                fimse
+
+            caso 5
+               // Mostrar status do pet
+               limpatela
+                escreval("Nome do Pet: ", nomePet)
+                escreval("Tempo de Vida: ", dias, " dia(s), e", tempoDeVida," horas.")
+                escreval("Felicidade: ", felicidade)
+                escreval("Limpeza: ", limpeza)
+                escreval("Fome: ", fome)
+                escreval("saúde:", doenca)
+                escreval("")
+
+            // Desligar o programa
+            caso 6
+                 limpatela
+                 escreval("muito obrigado por jogar nosso jogo!!"
+                 escreval("")
+                 escreval("Equipe de produção:Alexssander José")
+                 escreval("                   Alex Nunes")
+                 escreval("                   Ezequias Nery")
+                 escreval("                   Vitor Reis")
+                 escreval("")
+                 escreval("Aplicação encerrada com sucesso!")
+                 fimalgoritmo
+
+            outrocaso
+            limpatela
+            escreval("Opção inválida! Insira uma opção existente!")
+            escreval("")
+            fimescolha
+
+   ate opc=6
+
+fimalgoritmo
