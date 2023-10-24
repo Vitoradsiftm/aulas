@@ -13,8 +13,8 @@ inicio
     escreval("Bem-vindo ao Projeto Eletronic Friend 2023!")
     escreval("      <(^^)>    (••)    (x.x)")
     escreval("")
-    
-    
+
+
     escreval("         .......;;;;;/mmmmmmmmmmmmmm\/..................      ")
     escreval("       ........;;;mmmmmmmmmmmmmmmmmmm.....................    ")
     escreval("     .........;;m/;;;;\mmmmmm/;;;;;\m......................   ")
@@ -62,9 +62,26 @@ inicio
     felicidade <- 5
     limpeza <- 10
     fome <- 0
-
+    doenca<-("Seu pet está saudável")
 
     repita
+         //Auxilio para que o jogador saiba se o pet precisa de algo
+
+        se (fome>5) entao
+           escreval("Você deveria alimentar ", nomePet, " ele(a) está faminto(a)")
+           escreval("")
+        fimse
+        se (limpeza<5) entao
+
+           escreval(nomePet, " está muito sujo, voce deveria dar um banho nele(a)")
+           escreval("")
+        fimse
+        se (felicidade<5) entao
+
+           escreval(nomePet, " está infeliz, você deveria anima-lo(a)")
+           escreval("")
+        fimse
+
         escreval("Projeto Eletronic Friend 2023")
         escreval("<(^^)>    (••)    (x.x)")
         escreval("Escolha uma opção a seguir: ")
@@ -76,6 +93,12 @@ inicio
         escreval("6. Desligar")
 
         leia(opc)
+
+
+
+
+
+
 
         escolha(opc)
            caso 1
@@ -95,7 +118,7 @@ inicio
 
                 se (dias = 7) entao
                             limpatela
-                            escreval(nomePet, "morreu por velhice e teve um tempo de vida de ",dias," dias :(")
+                            escreval(nomePet, "morreu por velhice, parabéns voçe venceu o jogo seu pet teve um tempo de vida de ",dias," dias :(")
                             escreval("")
                             escreval("Muito obrigado por jogar nosso jogo!!")
                             escreval("")
@@ -139,16 +162,17 @@ inicio
                             fimalgoritmo
                             fimse
                  //SORTEIO PARA A DOENÇA
-                sorteio <- randi (9)
-                se sorteio = 0 então
+                se(doenca="Seu pet está saudável") entao
+                   sorteio <- randi (9)
+                   se sorteio = 0 então
                       escreval ("Seu pet está doente")
                       escreval("")
                       doenca<- ("Seu pet está doente")
-                senao
-                  escreval("Seu pet está saudável")
-                  escreval("")
-                  doenca<- ("Seu pet está saudável")
-                  fimse
+                   senao
+                      escreval("Seu pet está saudável")
+                      escreval("")
+                   fimse
+                fimse
                   //Sorteio para chance de curar
                   se (cont=1) entao
                      sorteio <- randi (2)
@@ -157,15 +181,21 @@ inicio
                        escreval("Seu pet está saudável")
                        escreval("")
                        cont<-0
+                     senao
+                        escreval("Seu pet continua doente")
+                        escreval("")
                      fimse
                   fimse
                   se(cont=2) entao
                      sorteio <- randi (2)
                      se (sorteio<>2) entao
-                     doenca<- ("Seu pet está saudável")
-                     cont<-0
-                     escreval("Seu pet está saudável")
-                     escreval("")
+                        doenca<- ("Seu pet está saudável")
+                        cont<-0
+                        escreval("Seu pet está saudável")
+                        escreval("")
+                     senao
+                        escreval ("Seu pet continua doente")
+                        escreval("")
                      fimse
                   fimse
                   se (cont=3) entao
@@ -184,22 +214,24 @@ inicio
 
             caso 2
                 // Alimentar o pet
+               limpatela
                se fome = 0 entao
                felicidade<-felicidade-2
                 escreval(nomePet, " não estava com fome! Ficou infeliz pelo lanche desnecesário!")
-
+                escreval("")
                   senao
                se (fome>0) e (fome<4) entao
                   fome<-0
                   felicidade<-felicidade + 2
 
                   escreval(nomePet, "  estava com fome! Ficou feliz pelo lanche!")
+                  escreval("")
                senao
                     fome<-fome-4
                     felicidade<-felicidade+2
 
                     escreval(nomePet, "  estava com fome! Ficou feliz pelo lanche!")
-
+                    escreval("")
                  fimse
                fimse
 
@@ -276,6 +308,7 @@ inicio
                   fimse
             caso 4
                 // Dar banho no pet
+                limpatela
                 se limpeza < 10 entao
                    limpeza <- 10
                    escreval("Banho concedido com sucesso!")
@@ -298,7 +331,7 @@ inicio
             // Desligar o programa
             caso 6
                  limpatela
-                 escreval("muito obrigado por jogar nosso jogo!!"
+                 escreval("muito obrigado por jogar nosso jogo!!")
                  escreval("")
                  escreval("Equipe de produção:Alexssander José")
                  escreval("                   Alex Nunes")
@@ -317,3 +350,7 @@ inicio
    ate opc=6
 
 fimalgoritmo
+         
+
+
+        
