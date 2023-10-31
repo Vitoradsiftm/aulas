@@ -1,0 +1,35 @@
+Algoritmo "função"
+
+ procedimento ola(nome: caractere)
+
+ var
+
+ inicio
+     escreva("ola",nome,  "eu estou em um procediemnto")
+ fimprocedimento
+ procedimento ola2 (quantidade: inteiro)
+Var
+
+    contador: inteiro
+    nome2: caractere
+
+
+Inicio
+
+    Para contador de 1 até quantidade passo 1 faca
+    leia(nome2)
+    escreval("Boa noite" ,nome2)
+    fimpara
+    
+    
+    
+fimprocedimento
+
+
+var
+
+inicio
+      Ola(" JoSÉ ")
+      ola2(5)
+
+Fimalgoritmo
