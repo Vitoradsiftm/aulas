@@ -1,0 +1,19 @@
+Algoritmo "função"
+
+ procedimento ola
+
+ var
+
+ inicio
+     escreva("ola mundo eu estou em um procediemnto")
+ fimprocedimento
+Var
+
+
+
+Inicio
+
+    ola
+
+
+Fimalgoritmo
