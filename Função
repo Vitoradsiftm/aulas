@@ -1,0 +1,23 @@
+Algoritmo "função"
+//variavel global
+//variavel local
+ funcao ola: inteiro
+
+ var
+  x: inteiro
+ inicio
+ escreva("ola mundo, eu estou numa função")
+ retorne 1
+ fimfuncao
+ 
+Var
+ volta: inteiro
+
+
+Inicio
+ volta <- ola
+
+
+
+
+Fimalgoritmo
