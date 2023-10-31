@@ -1,0 +1,27 @@
+Algoritmo "função"
+
+ funcao soma: inteiro
+
+ var
+  x,y: inteiro
+ inicio
+ escreva ("escreva um número para ser somado")
+ leia(x)
+ escreva ("escreva um número para ser somado")
+ leia(y)
+ retorne x + y
+ fimfuncao
+Var
+ volta: inteiro
+
+
+
+Inicio
+ volta <- soma
+ escreval (volta)
+
+
+
+
+
+Fimalgoritmo
