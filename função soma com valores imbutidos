@@ -1,0 +1,31 @@
+Algoritmo "função"
+
+ funcao soma(a,b:inteiro): inteiro
+
+ var
+ resultado: inteiro
+ inicio
+  resultado <- a + b
+ retorne resultado
+ fimfuncao
+Var
+ volta, x, y: inteiro
+
+
+
+Inicio
+ escreva("digite x")
+ leia(x)
+ escreva("digite y")
+ leia(y)
+
+
+
+ volta <- soma(x,y)
+ escreval (volta)
+
+
+
+
+
+Fimalgoritmo
