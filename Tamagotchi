@@ -81,7 +81,7 @@ inicio
            escreval(nomePet, " está infeliz, você deveria anima-lo(a)")
            escreval("")
         fimse
-
+        //Menu do Projeto
         escreval("Projeto Eletronic Friend 2023")
         escreval("<(^^)>    (••)    (x.x)")
         escreval("Escolha uma opção a seguir: ")
@@ -118,7 +118,7 @@ inicio
 
                 se (dias = 7) entao
                             limpatela
-                            escreval(nomePet, "morreu por velhice, parabéns voçe venceu o jogo seu pet teve um tempo de vida de ",dias," dias :(")
+                            escreval("Parabéns você ganhou e conseguiu fazer ", nomePet," sobreviver por 7 dias")
                             escreval("")
                             escreval("Muito obrigado por jogar nosso jogo!!")
                             escreval("")
@@ -236,7 +236,7 @@ inicio
                fimse
 
             se (felicidade <= 0) entao
-                            escreval(nomePet, " morreu de tristeza :(")
+                            escreval(nomePet, " morreu de tristeza e teve um tempo de vida de ",dias," dias e ",tempoDeVida," horas :(")
                             fimalgoritmo
             senao
                  se (felicidade>10) entao
@@ -282,6 +282,7 @@ inicio
                   // Determine o vencedor
                   se (escolhaJogador = escolhaComputador) entao
                      escreval("Empate!")
+                     felicidade <- felicidade +3
                   senao
                        se (escolhaJogador = 1) e (escolhaComputador = 3) entao
                             escreval("Você ganhou!")
@@ -350,7 +351,6 @@ inicio
    ate opc=6
 
 fimalgoritmo
-         
 
 
         
