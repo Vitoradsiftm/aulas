@@ -1,0 +1,41 @@
+Algoritmo "função para receber n valores"
+
+
+ funcao contarpares: inteiro
+
+
+
+Var
+
+  numero: inteiro
+  par: inteiro
+
+Inicio
+   numero <- 1
+   
+   enquanto (numero <> 0) faca
+   
+            escreva("digite um número(0 para sair)")
+            leia(numero)
+            se ((numero mod 2) = 0) entao
+            par <- par +1
+
+            fimse
+            fimenquanto
+            retorne par
+
+
+
+
+fimfuncao
+
+
+
+var
+
+  numeropar: inteiro
+
+inicio
+    numeropar <- contarpares
+
+Fimalgoritmo
