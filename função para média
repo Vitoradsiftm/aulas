@@ -1,0 +1,43 @@
+Algoritmo "função para média"
+
+funcao media(n1,n2,n3: real): real
+
+
+
+
+Var
+
+  resultado: real
+
+Inicio
+
+ resultado <- (n1+n2+n3) / 3
+ retorne resultado
+
+
+
+
+fimfuncao
+
+
+
+var
+  resmedia: real
+  a,b,c: real
+
+inicio
+
+
+
+escreva ("digite o a")
+leia (a)
+escreva ("digite o b")
+leia (b)
+escreva ("digite o c")
+leia (c)
+
+ resmedia <- media(a,b,c)
+ 
+ 
+ escreva (resmedia)
+Fimalgoritmo
