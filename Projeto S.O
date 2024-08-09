@@ -1,1 +1,227 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
+#define MAX_PROCESSOS 15
+#define MAX_NOME 20
+
+typedef struct {
+    char id[MAX_NOME];
+    int tempo_execucao;
+    int tempo_chegada;
+} Processo;
+
+int compararProcessos(const void *a, const void *b) {
+    Processo *p1 = (Processo *)a;
+    Processo *p2 = (Processo *)b;
+    return p1->tempo_chegada - p2->tempo_chegada;
+}
+
+void imprimirResultados(int resultado[][2], int resultado_indice) {
+    printf("\nResultados dos tempos:\n\n");
+    printf("Tempo | Processo\n");
+    printf("------+---------\n");
+    for (int i = 0; i < resultado_indice; i++) {
+        printf("%5d |    %c\n", resultado[i][0], resultado[i][1]);
+    }
+    printf("\n");
+}
+
+void executarSRT() {
+    printf("SRT\n\n");
+
+    Processo processos[MAX_PROCESSOS];
+    int num_processos;
+    int i;
+
+    do {
+        printf("Quantos processos deseja cadastrar?\n");
+        scanf("%d", &num_processos);
+        if (num_processos > MAX_PROCESSOS) {
+            printf("O limite máximo é de %d processos.\n\n", MAX_PROCESSOS);
+        }
+    } while (num_processos > MAX_PROCESSOS || num_processos <= 0);
+
+    for (i = 0; i < num_processos; i++) {
+        printf("Digite o nome do processo, o tempo de execução e o tempo de chegada:\n");
+        scanf("%s %d %d", processos[i].id, &processos[i].tempo_execucao, &processos[i].tempo_chegada);
+    }
+
+    qsort(processos, num_processos, sizeof(Processo), compararProcessos);
+
+    Processo fila_prioridade[MAX_PROCESSOS];
+    int resultado[100][2];
+    int tempo_atual = 0;
+    int fila_tamanho = 0;
+    int resultado_indice = 0;
+    int continuar = 1;
+
+    while (continuar) {
+        for (i = 0; i < num_processos;) {
+            if (processos[i].tempo_chegada <= tempo_atual) {
+                fila_prioridade[fila_tamanho++] = processos[i];
+                memmove(&processos[i], &processos[i + 1], (num_processos - i - 1) * sizeof(Processo));
+                num_processos--;
+            } else {
+                i++;
+            }
+        }
+
+        if (fila_tamanho > 0) {
+            qsort(fila_prioridade, fila_tamanho, sizeof(Processo), compararProcessos);
+
+            resultado[resultado_indice][0] = tempo_atual;
+            resultado[resultado_indice][1] = fila_prioridade[0].id[0]; // Ajuste para exibir a primeira letra do nome
+            resultado_indice++;
+            tempo_atual++;
+
+            fila_prioridade[0].tempo_execucao--;
+
+            if (fila_prioridade[0].tempo_execucao > 0) {
+                Processo temp = fila_prioridade[0];
+                for (i = 1; i < fila_tamanho; i++) {
+                    fila_prioridade[i - 1] = fila_prioridade[i];
+                }
+                fila_prioridade[fila_tamanho - 1] = temp;
+            } else {
+                for (i = 1; i < fila_tamanho; i++) {
+                    fila_prioridade[i - 1] = fila_prioridade[i];
+                }
+                fila_tamanho--;
+            }
+        } else {
+            resultado[resultado_indice][0] = tempo_atual;
+            resultado[resultado_indice][1] = '*';
+            resultado_indice++;
+            tempo_atual++;
+        }
+
+        if (fila_tamanho == 0 && num_processos == 0) {
+            continuar = 0;
+        }
+    }
+
+    imprimirResultados(resultado, resultado_indice);
+}
+
+void executarRoundRobin() {
+    printf("Round Robin:\n");
+
+    Processo processos[MAX_PROCESSOS];
+    int num_processos;
+    int i;
+
+    do {
+        printf("Quantos processos deseja cadastrar?\n");
+        scanf("%d", &num_processos);
+        if (num_processos > MAX_PROCESSOS) {
+            printf("O limite é de %d processos.\n\n", MAX_PROCESSOS);
+        }
+    } while (num_processos > MAX_PROCESSOS || num_processos <= 0);
+
+    for (i = 0; i < num_processos; i++) {
+        printf("Digite o nome do processo, o tempo de execução e o tempo de chegada:\n");
+        scanf("%s %d %d", processos[i].id, &processos[i].tempo_execucao, &processos[i].tempo_chegada);
+    }
+
+    qsort(processos, num_processos, sizeof(Processo), compararProcessos);
+
+    int quantum;
+    printf("Qual o valor do quantum?\n");
+    scanf("%d", &quantum);
+
+    Processo fila[MAX_PROCESSOS];
+    int resultado[100][2];
+    int tempo_atual = 0;
+    int fila_tamanho = 0;
+    int resultado_indice = 0;
+    int continuar = 1;
+
+    while (continuar) {
+        for (i = 0; i < num_processos;) {
+            if (processos[i].tempo_chegada <= tempo_atual) {
+                fila[fila_tamanho++] = processos[i];
+                memmove(&processos[i], &processos[i + 1], (num_processos - i - 1) * sizeof(Processo));
+                num_processos--;
+            } else {
+                i++;
+            }
+        }
+
+        if (fila_tamanho > 0) {
+            int tempo_quantum = quantum;
+
+            while (tempo_quantum-- && fila[0].tempo_execucao > 0) {
+                fila[0].tempo_execucao--;
+                resultado[resultado_indice][0] = tempo_atual;
+                resultado[resultado_indice][1] = fila[0].id[0]; // Ajuste para exibir a primeira letra do nome
+                resultado_indice++;
+                tempo_atual++;
+
+                for (i = 0; i < num_processos;) {
+                    if (processos[i].tempo_chegada <= tempo_atual) {
+                        fila[fila_tamanho++] = processos[i];
+                        memmove(&processos[i], &processos[i + 1], (num_processos - i - 1) * sizeof(Processo));
+                        num_processos--;
+                    } else {
+                        i++;
+                    }
+                }
+            }
+
+            if (fila[0].tempo_execucao > 0) {
+                Processo temp = fila[0];
+                for (i = 1; i < fila_tamanho; i++) {
+                    fila[i - 1] = fila[i];
+                }
+                fila[fila_tamanho - 1] = temp;
+            } else {
+                for (i = 1; i < fila_tamanho; i++) {
+                    fila[i - 1] = fila[i];
+                }
+                fila_tamanho--;
+            }
+        } else {
+            resultado[resultado_indice][0] = tempo_atual;
+            resultado[resultado_indice][1] = '*';
+            resultado_indice++;
+            tempo_atual++;
+        }
+
+        if (fila_tamanho == 0 && num_processos == 0) {
+            continuar = 0;
+        }
+    }
+
+    imprimirResultados(resultado, resultado_indice);
+}
+
+int main() {
+    int opcao;
+
+    do {
+        printf("Menu Principal\n");
+        printf("Escolha um número:\n");
+        printf("1. Algoritmo SRT\n");
+        printf("2. Algoritmo Round Robin\n");
+        printf("3. Finalizar\n");
+        scanf("%d", &opcao);
+
+        switch (opcao) {
+            case 1:
+                executarSRT();
+                break;
+            case 2:
+                executarRoundRobin();
+                break;
+            case 3:
+                printf("Finalizado.\n");
+                break;
+            default:
+                printf("Escolha inválida. Tente novamente.\n");
+                break;
+        }
+    } while (opcao != 3);
+
+    return 0;
+}
